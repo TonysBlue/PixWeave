@@ -1,0 +1,17 @@
+[Unit]
+Description=PixWeave standalone local beta product
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/products/pixweave
+Environment="HOME=%h"
+Environment="PYTHONPATH=%h/products/pixweave"
+ExecStart=/usr/bin/env python3.11 -m pixweave beta-product --host 0.0.0.0 --port 18112
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=default.target
