@@ -12,7 +12,7 @@ No spend or price change is executed without Chairman approval.
 
 ## Internal sensitivity model
 
-Run `python3 -m agent_company unit-economics examples/unit-economics.json` to reproduce the
+Run `python3 -m pixweave unit-economics examples/unit-economics.json` to reproduce the
 current scenario calculation. Inputs are planning assumptions, not vendor quotes, invoices,
 measured customer usage, or approved pricing.
 
@@ -37,7 +37,7 @@ model for a pricing recommendation; any formal price still requires Chairman app
 Run the local, reproducible sample summary:
 
 ```bash
-python3.11 -m agent_company.cli beta-session-economics \
+python3.11 -m pixweave beta-session-economics \
   examples/beta-session-economics.json \
   --output data/artifacts/beta-session-economics.json
 ```

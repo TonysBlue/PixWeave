@@ -34,6 +34,3 @@ def load_config(path: str | Path | None = None, *, workspace: Path | None = None
         logs_dir=data_root / "logs",
         product_name=parser.get("product", "name", fallback="织象 PixWeave"),
     )
-
-
-CompanyConfig = ProductConfig

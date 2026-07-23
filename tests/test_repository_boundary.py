@@ -32,11 +32,19 @@ class PixWeaveRepositoryTest(unittest.TestCase):
             self.assertEqual(cfg.data_root, Path.home() / "product-data" / "pixweave")
             self.assertEqual(cfg.artifacts_dir, cfg.data_root / "artifacts")
 
+    def test_checked_in_service_is_loopback_only(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        service = (root / "deploy" / "pixweave-beta.service").read_text(encoding="utf-8")
+        self.assertIn("--host 127.0.0.1", service)
+        self.assertNotIn("--host 0.0.0.0", service)
+
     def test_product_manifest_declares_repository_and_verification(self) -> None:
         root = Path(__file__).resolve().parents[1]
         manifest = json.loads((root / "product.json").read_text(encoding="utf-8"))
         self.assertEqual(manifest["product_id"], "pixweave")
         self.assertEqual(manifest["repository"], "git@github.com:TonysBlue/PixWeave.git")
+        self.assertEqual(manifest["local_path"], "~/products/pixweave")
+        self.assertEqual(manifest["runtime_data_root"], "~/product-data/pixweave")
         self.assertEqual(manifest["canonical_test"], "python3.11 -m unittest discover -s tests -v")
 
 

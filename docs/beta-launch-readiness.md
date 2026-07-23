@@ -15,13 +15,13 @@ The gate covers:
 - unit-economics evidence;
 - reserved-action approvals.
 
-Output is deterministic internal readiness evidence with `launch_authorized: false` and `external_action_authorized: false`. Pending or denied reserved actions produce `blocked_pending_chairman_approvals`; only a package with pinned approved decisions is `ready_for_chairman_review`. Neither status authorizes execution. It is not a production deployment, publication, pricing decision, payment action, customer outreach, or legal authorization. Any external, irreversible, financial, pricing, legal, production, customer-data, or publication action still requires Chairman control according to `docs/constitution.md`.
+Output is deterministic internal readiness evidence with `launch_authorized: false` and `external_action_authorized: false`. Pending or denied reserved actions produce `blocked_pending_chairman_approvals`; only a package with pinned approved decisions is `ready_for_chairman_review`. Neither status authorizes execution. It is not a production deployment, publication, pricing decision, payment action, customer outreach, or legal authorization. Any external, irreversible, financial, pricing, legal, production, customer-data, or publication action still requires Chairman control according to the Agent Company Chairman governance policy.
 
 Example:
 
 ```bash
-python3.11 -m agent_company.cli beta-launch-readiness examples/beta-launch-package.json
-python3.11 -m agent_company.cli beta-launch-readiness examples/beta-launch-package.json --output data/artifacts/beta-launch-readiness.json
+python3.11 -m pixweave beta-launch-readiness examples/beta-launch-package.json
+python3.11 -m pixweave beta-launch-readiness examples/beta-launch-package.json --output data/artifacts/beta-launch-readiness.json
 ```
 
 Package schema:

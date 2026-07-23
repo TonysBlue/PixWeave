@@ -20,7 +20,7 @@ from .campaign_render import (
     verify_campaign_render_bundle,
 )
 from .campaign_review import CampaignReviewError, build_campaign_review_record, record_campaign_review
-from .config import CompanyConfig, load_config
+from .config import ProductConfig, load_config
 from .feedback import FeedbackError, capture_feedback
 from .local_image_render import LOCAL_IMAGE_RENDER_PROVIDER, LOCAL_IMAGE_RENDER_PROVIDER_VERSION
 from .source_image_edit import (
@@ -71,7 +71,7 @@ def _safe_suffix(value: str) -> str:
 class LocalBetaProductApp:
     """Bounded local beta interface that composes validated domain functions."""
 
-    def __init__(self, config: CompanyConfig):
+    def __init__(self, config: ProductConfig):
         self.config = config
         self.artifacts_dir = config.artifacts_dir / "local-beta"
         self.artifacts_dir.mkdir(parents=True, exist_ok=True)
@@ -352,7 +352,7 @@ class LocalBetaProductHandler(BaseHTTPRequestHandler):
         print(f"{self.address_string()} - {format % args}")
 
 
-def serve(config: CompanyConfig, host: str = "127.0.0.1", port: int = 18112) -> None:
+def serve(config: ProductConfig, host: str = "127.0.0.1", port: int = 18112) -> None:
     app = LocalBetaProductApp(config)
 
     class BoundHandler(LocalBetaProductHandler):

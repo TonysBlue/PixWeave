@@ -6,10 +6,10 @@ Scope: internal operational risk review only; not legal advice and not authoriza
 
 ## Evidence reviewed
 
-- `agent_company/backend.py` creates deterministic JSON concept metadata from a prompt but does not create an image.
-- `agent_company/brandkit.py` validates brand constraints and creates deterministic campaign manifests.
+- `pixweave/backend.py` creates deterministic JSON concept metadata from a prompt but does not create an image.
+- `pixweave/brandkit.py` validates brand constraints and creates deterministic campaign manifests.
 - `docs/versioning-and-records.md` prohibits committing customer personal data and requires protected handling before such data is introduced.
-- `docs/constitution.md` reserves customer-data, legal, production, publication, pricing, financial, and irreversible actions for Chairman approval.
+- the Agent Company Chairman governance policy reserves customer-data, legal, production, publication, pricing, financial, and irreversible actions for Chairman approval.
 
 ## Control gap: no enforceable source-rights and likeness gate
 

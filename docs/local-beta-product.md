@@ -3,7 +3,7 @@
 `beta-product` is a bounded local HTTP interface for internal product review:
 
 ```bash
-python3.11 -m agent_company.cli beta-product --host 127.0.0.1 --port 18112
+python3.11 -m pixweave beta-product --host 127.0.0.1 --port 18112
 ```
 
 Open `http://127.0.0.1:18112/beta` for the internal control page. The service is stdlib-only, binds to localhost by default, does not read or write runtime SQLite task status, and does not call external services.

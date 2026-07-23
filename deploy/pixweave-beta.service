@@ -7,7 +7,7 @@ Type=simple
 WorkingDirectory=%h/products/pixweave
 Environment="HOME=%h"
 Environment="PYTHONPATH=%h/products/pixweave"
-ExecStart=/usr/bin/env python3.11 -m pixweave beta-product --host 0.0.0.0 --port 18112
+ExecStart=/usr/bin/env python3.11 -m pixweave beta-product --host 127.0.0.1 --port 18112
 Restart=on-failure
 RestartSec=5
 NoNewPrivileges=true

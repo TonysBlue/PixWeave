@@ -14,5 +14,5 @@ reserved actions still require Chairman control.
 Example:
 
 ```bash
-python3.11 -m agent_company.cli product-shot-workflow examples/product-shot-workflow.json
+python3.11 -m pixweave product-shot-workflow examples/product-shot-workflow.json
 ```

@@ -14,7 +14,7 @@ from .campaign_render import (
     verify_campaign_render_bundle,
 )
 from .campaign_review import build_campaign_review_record, record_campaign_review
-from .config import CompanyConfig
+from .config import ProductConfig
 from .product_shot import build_product_shot_manifest
 from .prompt_pack import build_prompt_manifest
 from .visual_qa import build_scorecard
@@ -29,7 +29,7 @@ class LocalBackend:
 
     name = "local"
 
-    def __init__(self, config: CompanyConfig):
+    def __init__(self, config: ProductConfig):
         self.config = config
         self.config.artifacts_dir.mkdir(parents=True, exist_ok=True)
 
@@ -149,30 +149,3 @@ class LocalBackend:
             "decision": scorecard["decision"],
             "composite_score": scorecard["measurements"]["composite_score"],
         }
-
-
-class GuardedCodexBackend:
-    """Placeholder for optional guarded Codex execution.
-
-    The MVP intentionally does not call external services. Enabling this backend
-    requires explicit config and should still route external or irreversible
-    actions through Chairman approval.
-    """
-
-    name = "codex"
-
-    def __init__(self, config: CompanyConfig):
-        self.config = config
-        if not config.codex_enabled:
-            raise BackendError("Codex backend is configured but codex_enabled=false")
-
-    def generate(self, prompt: str, mode: str = "generate", style: str = "commercial") -> dict[str, str]:
-        raise BackendError("Guarded Codex backend is not implemented in stdlib-only MVP")
-
-
-def make_backend(config: CompanyConfig) -> LocalBackend | GuardedCodexBackend:
-    if config.backend == "local":
-        return LocalBackend(config)
-    if config.backend == "codex":
-        return GuardedCodexBackend(config)
-    raise BackendError(f"Unknown backend: {config.backend}")

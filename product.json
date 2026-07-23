@@ -4,8 +4,8 @@
   "name": "织象 PixWeave",
   "repository": "git@github.com:TonysBlue/PixWeave.git",
   "default_branch": "main",
-  "local_path": "/home/tony/products/pixweave",
-  "runtime_data_root": "/home/tony/product-data/pixweave",
+  "local_path": "~/products/pixweave",
+  "runtime_data_root": "~/product-data/pixweave",
   "canonical_test": "python3.11 -m unittest discover -s tests -v",
   "health_url": "http://127.0.0.1:18112/api/beta/status"
 }
